@@ -4,11 +4,12 @@
 
 @font-face {
   font-family: Muli;
-  src: url("../public/fonts/muli/Muli-Regular.ttf") format("truetype");
+  src: url("../public/fonts/Lato/Lato-Regular.ttf") format("truetype");
 }
 .App {
   /* background-color: pink; */
-  color:black
+  color:black;
+  font-family: Lato;
 }
 
 a {

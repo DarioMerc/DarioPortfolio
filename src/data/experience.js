@@ -64,6 +64,6 @@ export default [
         ],
       },
     ],
-    tools: ["Javascript, PHP, JQuery, ExpressionEngine"],
+    tools: ["Javascript", "PHP", "JQuery", "ExpressionEngine"],
   },
 ];
