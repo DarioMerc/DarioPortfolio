@@ -3,9 +3,9 @@ import React from "react";
 const ExperienceItem = (job) => {
   return (
     <div>
-      <hr className=" border-black" />
+      <hr />
       <div className="w-11/12 mx-auto text-left px-3 py-2">
-        <div className="flex">
+        <div className="flex mb-2">
           <p className="flex-1 text-2xl font-bold">
             {job.role} for {job.company}
           </p>
@@ -26,7 +26,12 @@ const ExperienceItem = (job) => {
               );
             })}
           </ul>
-          <p>Tools: {job.tools && job.tools.join(", ")}</p>
+          {job.tools && (
+            <div className="flex">
+              <p className="mr-2 font-extrabold">Tools:</p>
+              <p>{job.tools.join(", ")}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

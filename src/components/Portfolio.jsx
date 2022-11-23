@@ -5,13 +5,15 @@ const Portfolio = () => {
     <>
       <h2 className="text-4xl font-bold">Portfolio</h2>
       <div className="flex items-center justify-center py-5">
-        <div className="border-solid border-2 w-1/5 py-3 px-2 mx-3">
-          <img src="https://via.placeholder.com/150" />
-          <p>Project</p>
-        </div>
-        <div className="border-solid border-2 w-1/5 py-3 px-2 mx-3">
-          <img src="https://via.placeholder.com/150" />
-          <p>Project</p>
+        <div className="border-solid border-2 w-2/6 p-3">
+          <img className="mx-auto" src="https://via.placeholder.com/150" />
+          <p className="text-2xl font-extrabold">Project</p>
+          <div className="flex justify-center pt-3">
+            <p className="px-1 mx-1 border-solid border-2 border-white">Tool</p>
+            <p className="px-1 mx-1 border-solid border-2 border-white">Tool</p>
+            <p className="px-1 mx-1 border-solid border-2 border-white">Tool</p>
+            <p className="px-1 mx-1 border-solid border-2 border-white">Tool</p>
+          </div>
         </div>
       </div>
     </>
