@@ -1,6 +1,6 @@
 import React from "react";
 
-const ExperienceItem = (job) => {
+const Job = (job) => {
   return (
     <div>
       <hr />
@@ -38,4 +38,4 @@ const ExperienceItem = (job) => {
   );
 };
 
-export default ExperienceItem;
+export default Job;

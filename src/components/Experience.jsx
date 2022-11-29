@@ -1,14 +1,14 @@
 import React from "react";
-import ExperienceItem from "./ExperienceItem";
+import Job from "./Job";
 import experience from "../data/experience";
 
 const Experience = () => {
   return (
     <>
-      <h2 className="text-5xl font-bold ">Experience</h2>
-      <p className="text-sm py-1">*Non Tech jobs excluded*</p>
+      <h2 className="text-4xl font-bold ">Experience</h2>
+      <p className="text-sm mt-1 mb-3">*Non Tech jobs excluded*</p>
       {experience.map((job) => {
-        return <ExperienceItem {...job} key={job.company} />;
+        return <Job {...job} key={job.company} />;
       })}
     </>
   );
