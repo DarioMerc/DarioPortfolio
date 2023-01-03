@@ -4,7 +4,7 @@ export default [
     company: "Marketucan Technologies",
     year: "Dec 2022 - Present",
     summary:
-      "Worked in a small agile team of ten to implement, discuss and fix various features on multiple company services. Terminated due to a corporate layoff following the resignation of the CEO and COO.",
+      "I cannot speak of the projects im working on due to an NDA I signed.",
     tools: ["Angular", "C#", "MongoDB"],
   },
   {
