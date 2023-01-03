@@ -1,6 +1,14 @@
 export default [
   {
     role: "Software Developer",
+    company: "Marketucan Technologies",
+    year: "Dec 2022 - Present",
+    summary:
+      "Worked in a small agile team of ten to implement, discuss and fix various features on multiple company services. Terminated due to a corporate layoff following the resignation of the CEO and COO.",
+    tools: ["Angular", "C#", "MongoDB"],
+  },
+  {
+    role: "Software Developer",
     company: "MindGeek",
     year: "April 2022 - June 2022",
     summary:

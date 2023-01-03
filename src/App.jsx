@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <div className="min-h-screen  max-w-5xl w-11/12 mx-auto font-muli">
         <Intro />
-        <Portfolio />
         <Experience />
+        <Portfolio />
         <Footer />
       </div>
     </div>

@@ -2,9 +2,9 @@ import React from "react";
 
 const Intro = () => {
   return (
-    <section className="flex items-center justify-center flex-col mb-10">
+    <section className="flex items-center justify-center flex-col mb-5">
       <div className="text-center">
-        <h1 className="text-6xl md:text-7xl mb-1 md:mb-2 font-extrabold">
+        <h1 className="text-6xl md:text-7xl mb-2 font-extrabold">
           Dario Mercuri
         </h1>
         <p className="text-4xl mb-5">Junior Developer</p>

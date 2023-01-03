@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Muli;
-  src: url("../public/fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-family: Verdana;
+  src: url("../public/fonts/Verdana/verdana.ttf") format("truetype");
 }
 
 #root {

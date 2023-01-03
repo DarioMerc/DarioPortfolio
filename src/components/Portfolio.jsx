@@ -5,7 +5,7 @@ const Portfolio = () => {
   return (
     <>
       <h2 className="text-4xl font-bold mb-5">Portfolio</h2>
-      <div className="flex items-center justify-center pb-10">
+      <div className="flex items-center justify-center">
         {projects.map((project) => {
           return <Project {...project} key={project.title} />;
         })}
