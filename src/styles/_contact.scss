@@ -1,0 +1,37 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  div {
+    width: 50%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  height: 2rem;
+  padding-left: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+textarea {
+  margin-top: 0.5rem;
+  height: 4rem;
+}
+input[type="submit"] {
+  border: none;
+  background: $accent-color;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  width: 50%;
+  &:hover {
+    background: darken($accent-color, 10);
+    cursor: pointer;
+  }
+}
