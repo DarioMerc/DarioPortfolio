@@ -25,13 +25,10 @@ textarea {
 }
 input[type="submit"] {
   border: none;
-  background: $accent-color;
+  background-color: transparent;
+  border: 1px solid white;
   color: white;
   font-weight: bold;
   font-size: 1.2rem;
   width: 50%;
-  &:hover {
-    background: darken($accent-color, 10);
-    cursor: pointer;
-  }
 }

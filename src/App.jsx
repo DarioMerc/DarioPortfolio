@@ -1,14 +1,8 @@
-import {
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useInView, useScroll, useSpring } from "framer-motion";
 import React, { useRef } from "react";
 import { FaEnvelope, FaFileAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 import StickyBox from "react-sticky-box";
-import portrait from "./assets/Portrait.jpg";
+import portrait from "../public/Portrait.jpg";
 import "./styles/styles.scss";
 
 function App() {
@@ -17,6 +11,7 @@ function App() {
     { id: 1, name: "Experience" },
     { id: 3, name: "Education" },
     { id: 4, name: "Projects" },
+    { id: 5, name: "Contact" },
   ];
 
   const appRef = useRef(null);
@@ -37,9 +32,8 @@ function App() {
   const inViewEducation = useInView(refEducation, { margin: "-50%" });
   const refProjects = useRef(null);
   const inViewProjects = useInView(refProjects, { margin: "-50%" });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
+  const refContact = useRef(null);
+  const inViewContact = useInView(refContact, { margin: "-50%" });
 
   return (
     <>
@@ -73,12 +67,15 @@ function App() {
                             ? 1.5
                             : inViewProjects && section.name === "Projects"
                             ? 1.5
+                            : inViewContact && section.name === "Contact"
+                            ? 1.5
                             : 1,
                       }}
                     >
                       <motion.a
                         href={"#" + section.name}
                         transition={{ duration: 0.5 }}
+                        whileHover={{ color: "#bc66ff" }}
                         animate={{
                           color:
                             inViewAbout && section.name === "About"
@@ -89,6 +86,8 @@ function App() {
                               : inViewEducation && section.name === "Education"
                               ? "#9000FF"
                               : inViewProjects && section.name === "Projects"
+                              ? "#9000FF"
+                              : inViewContact && section.name === "Contact"
                               ? "#9000FF"
                               : "#FFFFFF",
                         }}
@@ -127,6 +126,8 @@ function App() {
                         whileHover={{ scale: 1.5, color: "#9000FF" }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.5 }}
+                        href="/assets/resume.pdf"
+                        download={"Dario Mercuri Resume.pdf"}
                       >
                         <FaFileAlt />
                       </motion.a>
@@ -137,7 +138,15 @@ function App() {
             </div>
           </StickyBox>
           <div className="main-content">
-            <motion.section id="About" ref={refAbout}>
+            <motion.section
+              id="About"
+              ref={refAbout}
+              transition={{ duration: 1 }}
+              animate={{
+                opacity: inViewAbout ? 1 : 0,
+                scale: inViewAbout ? 1 : 0.8,
+              }}
+            >
               <div style={{ display: "flex", alignItems: "center" }}>
                 <div>
                   <p>
@@ -159,7 +168,11 @@ function App() {
             <motion.section
               id="Experience"
               ref={refExperience}
-              style={{ scale, opacity }}
+              transition={{ duration: 1 }}
+              animate={{
+                opacity: inViewExperience ? 1 : 0,
+                scale: inViewExperience ? 1 : 0.8,
+              }}
             >
               <h2>Experience</h2>
               <div className="job">
@@ -242,7 +255,15 @@ function App() {
               </div>
             </motion.section>
             <hr />
-            <motion.section id="Education" ref={refEducation}>
+            <motion.section
+              id="Education"
+              ref={refEducation}
+              transition={{ duration: 1 }}
+              animate={{
+                opacity: inViewEducation ? 1 : 0,
+                scale: inViewEducation ? 1 : 0.8,
+              }}
+            >
               <h2>Education</h2>
               <div className="education">
                 <p>
@@ -256,22 +277,101 @@ function App() {
               </div>
             </motion.section>
             <hr />
-            <motion.section id="Projects" ref={refProjects}>
+            <motion.section
+              id="Projects"
+              ref={refProjects}
+              transition={{ duration: 1 }}
+              animate={{
+                opacity: inViewProjects ? 1 : 0,
+                scale: inViewProjects ? 1 : 0.8,
+              }}
+            >
               <h2>Projects</h2>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore
-              veritatis aliquid iste fuga saepe dolorem, inventore alias!
-              Quibusdam, laborum nam dolorem ea odio sunt deserunt, doloremque
-              aspernatur esse earum praesentium! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Alias nihil, quam debitis quis ad
-              quisquam. Aut eius voluptates inventore distinctio quasi, totam
-              vitae error sint repudiandae, consectetur, nostrum explicabo
-              perspiciatis? Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. In magni perferendis accusantium officiis sed enim ex optio
-              dolore ea nihil illo, odio beatae voluptas et asperiores adipisci.
-              Laboriosam, dolorem recusandae?
+              <div className="project-container">
+                <motion.div
+                  className="project"
+                  whileHover={{ scale: 1.05, borderColor: "#9000FF" }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <img className="image" src="/public/mangomarket.png" alt="" />
+                  <div className="info">
+                    <div className="title">Mango Market</div>
+                    <div className="description">
+                      Fake E-Commerce site selling imported mango varieties from
+                      around the world.
+                    </div>
+                    <div className="buttons">
+                      <motion.button
+                        transition={{ duration: 0.5 }}
+                        whileHover={{
+                          backgroundColor: "#9000FF",
+                          borderColor: "#9000FF",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Visit
+                      </motion.button>
+                      <motion.button
+                        transition={{ duration: 0.5 }}
+                        whileHover={{
+                          backgroundColor: "#9000FF",
+                          borderColor: "#9000FF",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Github
+                      </motion.button>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="project"
+                  whileHover={{ scale: 1.05, borderColor: "#9000FF" }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <img className="image" src="/public/win95.png" alt="" />
+                  <div className="info">
+                    <div className="title">Windows 95 Portfolio</div>
+                    <div className="description">
+                      A portfolio website made in React that is meant to emulate
+                      the visual style of Windows 95!
+                    </div>
+                    <div className="buttons">
+                      <motion.button
+                        transition={{ duration: 0.5 }}
+                        whileHover={{
+                          backgroundColor: "#9000FF",
+                          borderColor: "#9000FF",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Visit
+                      </motion.button>
+                      <motion.button
+                        transition={{ duration: 0.5 }}
+                        whileHover={{
+                          backgroundColor: "#9000FF",
+                          borderColor: "#9000FF",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Github
+                      </motion.button>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </motion.section>
             <hr />
-            <section id="Contact">
+            <motion.section
+              id="Contact"
+              ref={refContact}
+              transition={{ duration: 1 }}
+              animate={{
+                opacity: inViewContact ? 1 : 0,
+                scale: inViewContact ? 1 : 0.8,
+              }}
+            >
               <h2>Contact Me</h2>
               <form
                 action="https://getform.io/f/YerJRWeO"
@@ -298,10 +398,19 @@ function App() {
                   <textarea id="message" name="message" required></textarea>
                 </div>
                 <div>
-                  <input type="submit" value="Send" />
+                  <motion.input
+                    transition={{ duration: 0.5 }}
+                    whileHover={{
+                      backgroundColor: "#9000FF",
+                      borderColor: "#9000FF",
+                      cursor: "pointer",
+                    }}
+                    type="submit"
+                    value="Send"
+                  />
                 </div>
               </form>
-            </section>
+            </motion.section>
           </div>
         </div>
       )}
