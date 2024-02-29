@@ -2,7 +2,7 @@ import { motion, useInView, useScroll, useSpring } from "framer-motion";
 import React, { useRef } from "react";
 import { FaEnvelope, FaFileAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 import StickyBox from "react-sticky-box";
-import portrait from "../public/Portrait.jpg";
+import colors from "./styles/_colors.module.scss";
 import "./styles/styles.scss";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   const refExperience = useRef(null);
   const inViewExperience = useInView(refExperience, { margin: "-50%" });
   const refEducation = useRef(null);
-  const inViewEducation = useInView(refEducation, { margin: "-50%" });
+  const inViewEducation = useInView(refEducation, { margin: "-45%" });
   const refProjects = useRef(null);
   const inViewProjects = useInView(refProjects, { margin: "-50%" });
   const refContact = useRef(null);
@@ -75,20 +75,20 @@ function App() {
                       <motion.a
                         href={"#" + section.name}
                         transition={{ duration: 0.5 }}
-                        whileHover={{ color: "#bc66ff" }}
+                        whileHover={{ color: colors.darkAccent }}
                         animate={{
                           color:
                             inViewAbout && section.name === "About"
-                              ? "#9000FF"
+                              ? colors.accentColor
                               : inViewExperience &&
                                 section.name === "Experience"
-                              ? "#9000FF"
+                              ? colors.accentColor
                               : inViewEducation && section.name === "Education"
-                              ? "#9000FF"
+                              ? colors.accentColor
                               : inViewProjects && section.name === "Projects"
-                              ? "#9000FF"
+                              ? colors.accentColor
                               : inViewContact && section.name === "Contact"
-                              ? "#9000FF"
+                              ? colors.accentColor
                               : "#FFFFFF",
                         }}
                       >
@@ -99,7 +99,7 @@ function App() {
                   <li>
                     <div className="links">
                       <motion.a
-                        whileHover={{ scale: 1.5, color: "#9000FF" }}
+                        whileHover={{ scale: 1.5, color: colors.accentColor }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.5 }}
                         href="https://www.linkedin.com/in/dariomerc/"
@@ -107,7 +107,7 @@ function App() {
                         <FaLinkedin />
                       </motion.a>
                       <motion.a
-                        whileHover={{ scale: 1.5, color: "#9000FF" }}
+                        whileHover={{ scale: 1.5, color: colors.accentColor }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.5 }}
                         href="mailto:dario.mercuri31@gmail.com"
@@ -115,7 +115,7 @@ function App() {
                         <FaEnvelope />
                       </motion.a>
                       <motion.a
-                        whileHover={{ scale: 1.5, color: "#9000FF" }}
+                        whileHover={{ scale: 1.5, color: colors.accentColor }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.5 }}
                         href="https://github.com/DarioMerc"
@@ -123,7 +123,7 @@ function App() {
                         <FaGithub />
                       </motion.a>
                       <motion.a
-                        whileHover={{ scale: 1.5, color: "#9000FF" }}
+                        whileHover={{ scale: 1.5, color: colors.accentColor }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.5 }}
                         href="/assets/resume.pdf"
@@ -161,7 +161,7 @@ function App() {
                     watching movies and TV, and developing a video game.
                   </p>
                 </div>
-                <motion.img src={portrait} alt="" className="portrait" />
+                <motion.img src="/Portrait.jpg" alt="" className="portrait" />
               </div>
             </motion.section>
             <hr />
@@ -177,7 +177,9 @@ function App() {
               <h2>Experience</h2>
               <div className="job">
                 <div className="header">
-                  <div className="position">Full-Stack Developer</div>
+                  <div className="position">
+                    Full-Stack Developer - SeeMyApps
+                  </div>
                   <div className="date">(Nov 2022 - Nov 2023)</div>
                   <hr />
                 </div>
@@ -185,8 +187,8 @@ function App() {
                   <ul>
                     <li>
                       Independently worked on a variety of projects specializing
-                      in online customer engagement and CMS services for
-                      businesses.
+                      in Ecommerce, online customer engagement, and CMS
+                      services.
                     </li>
                     <li>
                       Built a prototype SASS application from the ground up in
@@ -205,7 +207,7 @@ function App() {
               </div>
               <div className="job">
                 <div className="header">
-                  <div className="position">Software Developer</div>
+                  <div className="position">Software Developer - MindGeek</div>
                   <div className="date">(Apr 2022 - Jun 2022)</div>
                   <hr />
                 </div>
@@ -214,10 +216,14 @@ function App() {
                     <li>
                       Collaborated with a small agile team to develop, discuss,
                       and enhance features for multiple backend services using
-                      Laravel PHP.
+                      Laravel.
                     </li>
                     <li>
-                      Terminated due to a corporate layoff following the
+                      Worked on company portals, APIs, crud pages, and
+                      middleware
+                    </li>
+                    <li>
+                      Laid off along with 125 employees following the
                       resignation of the CEO and COO.
                     </li>
                   </ul>
@@ -225,7 +231,9 @@ function App() {
               </div>
               <div className="job">
                 <div className="header">
-                  <div className="position">Computer Technician</div>
+                  <div className="position">
+                    Computer Technician - Private Client
+                  </div>
                   <div className="date">(May 2020 - Feb 2021)</div>
                   <hr />
                 </div>
@@ -240,7 +248,9 @@ function App() {
               </div>
               <div className="job">
                 <div className="header">
-                  <div className="position">Web Developer Intern</div>
+                  <div className="position">
+                    Web Developer Intern - SignatureWEB
+                  </div>
                   <div className="date">(Jan 2020 - Apr 2020)</div>
                   <hr />
                 </div>
@@ -290,10 +300,10 @@ function App() {
               <div className="project-container">
                 <motion.div
                   className="project"
-                  whileHover={{ scale: 1.05, borderColor: "#9000FF" }}
+                  whileHover={{ scale: 1.05, borderColor: colors.accentColor }}
                   transition={{ duration: 0.5 }}
                 >
-                  <img className="image" src="/public/mangomarket.png" alt="" />
+                  <img className="image" src="/mangomarket.png" alt="" />
                   <div className="info">
                     <div className="title">Mango Market</div>
                     <div className="description">
@@ -301,35 +311,41 @@ function App() {
                       around the world.
                     </div>
                     <div className="buttons">
-                      <motion.button
-                        transition={{ duration: 0.5 }}
-                        whileHover={{
-                          backgroundColor: "#9000FF",
-                          borderColor: "#9000FF",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Visit
-                      </motion.button>
-                      <motion.button
-                        transition={{ duration: 0.5 }}
-                        whileHover={{
-                          backgroundColor: "#9000FF",
-                          borderColor: "#9000FF",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Github
-                      </motion.button>
+                      <a href="https://mango-market-backend.onrender.com/">
+                        <motion.button
+                          transition={{ duration: 0.5 }}
+                          whileHover={{
+                            backgroundColor: colors.accentColor,
+                            borderColor: colors.accentColor,
+                            color: colors.bgColor,
+                            cursor: "pointer",
+                          }}
+                        >
+                          Visit
+                        </motion.button>
+                      </a>
+                      <a href="https://github.com/DarioMerc/MangoMarket">
+                        <motion.button
+                          transition={{ duration: 0.5 }}
+                          whileHover={{
+                            backgroundColor: colors.accentColor,
+                            borderColor: colors.accentColor,
+                            color: colors.bgColor,
+                            cursor: "pointer",
+                          }}
+                        >
+                          Github
+                        </motion.button>
+                      </a>
                     </div>
                   </div>
                 </motion.div>
                 <motion.div
                   className="project"
-                  whileHover={{ scale: 1.05, borderColor: "#9000FF" }}
+                  whileHover={{ scale: 1.05, borderColor: colors.accentColor }}
                   transition={{ duration: 0.5 }}
                 >
-                  <img className="image" src="/public/win95.png" alt="" />
+                  <img className="image" src="/win95.png" alt="" />
                   <div className="info">
                     <div className="title">Windows 95 Portfolio</div>
                     <div className="description">
@@ -337,26 +353,32 @@ function App() {
                       the visual style of Windows 95!
                     </div>
                     <div className="buttons">
-                      <motion.button
-                        transition={{ duration: 0.5 }}
-                        whileHover={{
-                          backgroundColor: "#9000FF",
-                          borderColor: "#9000FF",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Visit
-                      </motion.button>
-                      <motion.button
-                        transition={{ duration: 0.5 }}
-                        whileHover={{
-                          backgroundColor: "#9000FF",
-                          borderColor: "#9000FF",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Github
-                      </motion.button>
+                      <a href="https://dariomercuri.vercel.app/">
+                        <motion.button
+                          transition={{ duration: 0.5 }}
+                          whileHover={{
+                            backgroundColor: colors.accentColor,
+                            borderColor: colors.accentColor,
+                            color: colors.bgColor,
+                            cursor: "pointer",
+                          }}
+                        >
+                          Visit
+                        </motion.button>
+                      </a>
+                      <a href="https://github.com/DarioMerc/Windows95Portfolio">
+                        <motion.button
+                          transition={{ duration: 0.5 }}
+                          whileHover={{
+                            backgroundColor: colors.accentColor,
+                            borderColor: colors.accentColor,
+                            color: colors.bgColor,
+                            cursor: "pointer",
+                          }}
+                        >
+                          Github
+                        </motion.button>
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -401,8 +423,9 @@ function App() {
                   <motion.input
                     transition={{ duration: 0.5 }}
                     whileHover={{
-                      backgroundColor: "#9000FF",
-                      borderColor: "#9000FF",
+                      backgroundColor: colors.accentColor,
+                      borderColor: colors.accentColor,
+                      color: colors.bgColor,
                       cursor: "pointer",
                     }}
                     type="submit"

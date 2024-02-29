@@ -1,0 +1,11 @@
+$background-color: #050804;
+$accent-color: #27e5a7;
+$dark-accent: darken($accent-color, 20%);
+$light-accent: lighten($accent-color, 15%);
+
+:export {
+  bgColor: $background-color;
+  accentColor: $accent-color;
+  darkAccent: $dark-accent;
+  lightAccent: $light-accent;
+}

@@ -16,5 +16,5 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: darken($accent-color, 10%);
+  background: $dark-accent;
 }
