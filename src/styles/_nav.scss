@@ -1,0 +1,66 @@
+.sticky {
+  width: 20%;
+  .sidebar {
+    position: sticky;
+    top: 0;
+    text-align: center;
+    padding-left: 2rem;
+
+    //Header
+    .name {
+      color: $accent-color;
+      font-size: 2.5rem;
+      margin-bottom: 0px;
+      font-weight: bold;
+    }
+
+    //Progress Bar
+    .pbar-container {
+      display: grid;
+    }
+    .progress-bar {
+      grid-column: 1;
+      grid-row: 1;
+      height: 5px;
+      background: $accent-color;
+      transform-origin: 0%;
+    }
+    .progress-bar-white {
+      grid-column: 1;
+      grid-row: 1;
+      height: 5px;
+      background: white;
+    }
+
+    //Nav List
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin: 1.5rem 0;
+        a {
+          color: white;
+          font-weight: bold;
+
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+      .links {
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            margin: 0 1rem;
+          }
+        }
+      }
+
+      .copyright {
+        font-size: 0.4rem;
+      }
+    }
+  }
+}

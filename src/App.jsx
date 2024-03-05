@@ -1,18 +1,13 @@
 import { motion, useInView, useScroll, useSpring } from "framer-motion";
 import React, { useRef } from "react";
-import { FaEnvelope, FaFileAlt, FaGithub, FaLinkedin } from "react-icons/fa";
-import StickyBox from "react-sticky-box";
+
+import { useMediaQuery } from "react-responsive";
+import Sidebar from "./components/Sidebar";
 import colors from "./styles/_colors.module.scss";
 import "./styles/styles.scss";
 
 function App() {
-  const CVsections = [
-    { id: 0, name: "About" },
-    { id: 1, name: "Experience" },
-    { id: 3, name: "Education" },
-    { id: 4, name: "Projects" },
-    { id: 5, name: "Contact" },
-  ];
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const appRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: appRef });
@@ -39,105 +34,18 @@ function App() {
     <>
       {appRef && (
         <div className="app" ref={appRef}>
-          <StickyBox>
-            <div className="sidebar">
-              <nav>
-                <div>
-                  <h1 className="name">Dario Mercuri</h1>
-                  <div className="pbar-container">
-                    <div className="progress-bar-white"></div>
-                    <motion.div className="progress-bar" style={{ scaleX }} />
-                  </div>
-                </div>
-
-                <ul style={{ display: "inline-block" }}>
-                  {CVsections.map((section) => (
-                    <motion.li
-                      key={section.id}
-                      whileHover={{ scale: 1.5 }}
-                      whileTap={{ scale: 0.9 }}
-                      transition={{ duration: 0.5 }}
-                      animate={{
-                        scale:
-                          inViewAbout && section.name === "About"
-                            ? 1.5
-                            : inViewExperience && section.name === "Experience"
-                            ? 1.5
-                            : inViewEducation && section.name === "Education"
-                            ? 1.5
-                            : inViewProjects && section.name === "Projects"
-                            ? 1.5
-                            : inViewContact && section.name === "Contact"
-                            ? 1.5
-                            : 1,
-                      }}
-                    >
-                      <motion.a
-                        href={"#" + section.name}
-                        transition={{ duration: 0.5 }}
-                        whileHover={{ color: colors.darkAccent }}
-                        animate={{
-                          color:
-                            inViewAbout && section.name === "About"
-                              ? colors.accentColor
-                              : inViewExperience &&
-                                section.name === "Experience"
-                              ? colors.accentColor
-                              : inViewEducation && section.name === "Education"
-                              ? colors.accentColor
-                              : inViewProjects && section.name === "Projects"
-                              ? colors.accentColor
-                              : inViewContact && section.name === "Contact"
-                              ? colors.accentColor
-                              : "#FFFFFF",
-                        }}
-                      >
-                        {section.name}
-                      </motion.a>
-                    </motion.li>
-                  ))}
-                  <li>
-                    <div className="links">
-                      <motion.a
-                        whileHover={{ scale: 1.5, color: colors.accentColor }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.5 }}
-                        href="https://www.linkedin.com/in/dariomerc/"
-                      >
-                        <FaLinkedin />
-                      </motion.a>
-                      <motion.a
-                        whileHover={{ scale: 1.5, color: colors.accentColor }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.5 }}
-                        href="mailto:dario.mercuri31@gmail.com"
-                      >
-                        <FaEnvelope />
-                      </motion.a>
-                      <motion.a
-                        whileHover={{ scale: 1.5, color: colors.accentColor }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.5 }}
-                        href="https://github.com/DarioMerc"
-                      >
-                        <FaGithub />
-                      </motion.a>
-                      <motion.a
-                        whileHover={{ scale: 1.5, color: colors.accentColor }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ duration: 0.5 }}
-                        href="/assets/resume.pdf"
-                        download={"Dario Mercuri Resume.pdf"}
-                      >
-                        <FaFileAlt />
-                      </motion.a>
-                    </div>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </StickyBox>
+          {!isMobile && (
+            <Sidebar
+              appRef={appRef}
+              inViewAbout={inViewAbout}
+              inViewExperience={inViewExperience}
+              inViewEducation={inViewEducation}
+              inViewProjects={inViewProjects}
+              inViewContact={inViewContact}
+            />
+          )}
           <div className="main-content">
+            {isMobile && <h1 className="name">Dario Mercuri</h1>}
             <motion.section
               id="About"
               ref={refAbout}
@@ -147,7 +55,7 @@ function App() {
                 scale: inViewAbout ? 1 : 0.8,
               }}
             >
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div className="about">
                 <div>
                   <p>
                     Full-Stack Developer with roughly 2 years of experience. I
@@ -164,7 +72,7 @@ function App() {
                 <motion.img src="/Portrait.jpg" alt="" className="portrait" />
               </div>
             </motion.section>
-            <hr />
+            <hr className="divider" />
             <motion.section
               id="Experience"
               ref={refExperience}
@@ -264,7 +172,7 @@ function App() {
                 </div>
               </div>
             </motion.section>
-            <hr />
+            <hr className="divider" />
             <motion.section
               id="Education"
               ref={refEducation}
@@ -286,7 +194,7 @@ function App() {
                 </p>
               </div>
             </motion.section>
-            <hr />
+            <hr className="divider" />
             <motion.section
               id="Projects"
               ref={refProjects}
@@ -384,7 +292,7 @@ function App() {
                 </motion.div>
               </div>
             </motion.section>
-            <hr />
+            <hr className="divider" />
             <motion.section
               id="Contact"
               ref={refContact}

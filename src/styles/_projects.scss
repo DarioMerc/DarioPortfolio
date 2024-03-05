@@ -6,9 +6,10 @@
   .project {
     margin: 1rem;
     width: 40rem;
-    // height: 17rem;
     border: 2px solid white;
     display: flex;
+    // flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     padding: 0.5rem;
     .image {
