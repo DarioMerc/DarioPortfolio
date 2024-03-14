@@ -1,0 +1,74 @@
+.sticky {
+  width: 20%;
+  .sidebar {
+    padding-left: 2rem;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    text-align: center;
+
+    //Header
+    .name {
+      color: $accent-color;
+      font-size: clamp(1rem, 2.75rem, 3rem);
+      margin-bottom: 0px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    //Progress Bar
+    .pbar-container {
+      display: grid;
+    }
+    .progress-bar {
+      grid-column: 1;
+      grid-row: 1;
+      height: 5px;
+      background: $accent-color;
+      transform-origin: 0%;
+    }
+    .progress-bar-white {
+      grid-column: 1;
+      grid-row: 1;
+      height: 5px;
+      background: white;
+    }
+
+    .copyright {
+      font-size: 0.4rem;
+    }
+  }
+}
+
+//Nav List
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    margin: 1.5rem 0;
+    a {
+      color: white;
+      font-weight: bold;
+      font-size: clamp(0.6rem, 1vw, 2rem);
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  .links {
+    @media (max-width: 1000px) {
+      div {
+        margin-top: 1rem;
+      }
+    }
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        color: white;
+        margin: 0 1rem;
+      }
+    }
+  }
+}

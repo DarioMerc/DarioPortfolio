@@ -3,12 +3,14 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+
   .project {
     margin: 1rem;
     width: 40rem;
-    // height: 17rem;
     border: 2px solid white;
     display: flex;
+    // flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     padding: 0.5rem;
     .image {
@@ -24,25 +26,44 @@
       margin-left: 0.5rem;
 
       .title {
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
         font-weight: bold;
         margin-bottom: 1rem;
       }
       .description {
-        font-size: 1rem;
+        font-size: clamp(1rem, 2vw, 1rem);
         text-align: center;
       }
-      button {
-        margin: 0.5rem;
-        border: none;
-        background-color: transparent;
-        border: 1px solid white;
-        color: white;
-        font-weight: bold;
-        font-size: 1.2rem;
-        width: 7rem;
-        height: 2rem;
+      .buttons {
+        display: flex;
+        margin-top: 1rem;
+        button {
+          margin: 0.25rem;
+          border: none;
+          background-color: transparent;
+          border: 1px solid white;
+          color: white;
+          font-weight: bold;
+          font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+          width: clamp(4rem, 6vw, 8rem);
+          height: clamp(2rem, 4vh, 6rem);
+        }
       }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .project {
+    flex-direction: column;
+    margin: 0.5rem !important;
+    .image {
+      width: 100% !important;
+      margin-bottom: 0.5rem;
+    }
+    .info {
+      width: 100% !important;
+      margin-left: 0 !important;
     }
   }
 }
