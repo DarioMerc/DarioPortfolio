@@ -19,11 +19,10 @@ hr {
   border: 1px solid $accent-color;
 }
 section {
-  padding: 8rem 2rem;
+  padding: 8rem 1rem;
   h2 {
     text-align: center;
   }
-  // font-size: 1.7rem;
 }
 .app {
   display: flex;
@@ -33,22 +32,37 @@ section {
 }
 
 .main-content {
-  font-size: 1.7rem;
+  font-size: clamp(1rem, 2vw, 1.7rem);
   width: 80%;
 }
+.padded-content {
+  // padding-left: 1rem;
+  padding-right: 2rem;
+}
+.name {
+  color: $accent-color;
+  font-size: clamp(1rem, 3rem, 4rem);
 
+  margin-bottom: 0px;
+  font-weight: bold;
+  text-align: center;
+}
 .about {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   justify-content: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .about {
     flex-wrap: wrap-reverse;
   }
   .portrait {
     max-width: 100%;
+    padding-left: 0 !important;
+  }
+  .padded-content {
+    padding-right: 0;
   }
 }
 .portrait {
@@ -61,11 +75,11 @@ section {
   margin-top: 3rem;
   .header {
     .position {
-      font-size: 1.4rem;
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
       font-weight: bold;
     }
     .date {
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 2vw, 1rem);
     }
     hr {
       border: 0.25px solid white;
@@ -73,7 +87,7 @@ section {
   }
 }
 .content {
-  font-size: 1.2rem;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   ul {
     // list-style: none;
     // list-style-position: inside;
@@ -97,10 +111,10 @@ section {
 
 .education {
   p {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.5rem);
   }
 }
 
 .divider {
-  margin: 0 2rem;
+  // margin: 0 2rem;
 }

@@ -40,7 +40,7 @@ const Sidebar = ({
             </div>
           </div>
 
-          <ul style={{ display: "inline-block" }}>
+          <ul>
             {CVsections.map((section) => (
               <motion.li
                 key={section.id}
